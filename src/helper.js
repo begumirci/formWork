@@ -15,11 +15,18 @@ function myId(){
 
 function InsertRecords({name, email,gender}){
 
+  // if(!(name !== '' && email !== '' && gender !== '')){
+  //   alert('Lütfen bilgilerinizi eksiksiz girin')
+  //   return ;
+  // }
+  
+  
   const records = getAllRecords();
   const [newRecord] = arguments;
   newRecord.id = myId();
   records.push(newRecord);
   commitRecord(records);
+  alert('Verinin Başarıyla Kaydedildi!');
 }
 
 function UpdateRecords({name, id, email, gender}){

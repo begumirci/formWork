@@ -1,42 +1,52 @@
-import { useState, useRef} from "react";
-import { InsertRecords, oneRecord, UpdateRecords } from "../../helper";
-import '../../App.css';
+import { useState, useRef } from "react";
+import { commitRecord, getAllRecords, InsertRecords, oneRecord, UpdateRecords } from "../helper";
+import '../App.css';
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
-export async function formLoader({params}){
+
+export async function formLoader({ params }) {
     return oneRecord(params.id);
 }
 
-export default function FormContent({ data, setData, Isedit, setIsEdit}) {
+export default function FormContent() {
     const [submit, setSubmit] = useState(false);
     const myForm = useRef();
     const navigate = useNavigate();
 
     const loaderData = useLoaderData();
-   
+    
+    
 
     function handleClick(e) {
         e.preventDefault();
-       
-        // setSubmit(true);
-        // if (!e.target.checkValidity()) {
-        //     return;
-        // }
-
         const formData = new FormData(myForm.current);
 
-        if(loaderData){
+        const data = getAllRecords();
+        
+            if(data.find(x => x.email == Object.fromEntries(formData).email)){
+                alert('Bu mail adresiyle verimiz bulunmaktadır');
+                return;
+            }
+        if (Object.fromEntries(formData).name == '' || Object.fromEntries(formData).email == '' || Object.fromEntries(formData).gender == ''){
+            alert('Bilgileriniz Eksik');
+            return;
+        }
+
+            
+        
+        if (loaderData) {
             UpdateRecords(Object.fromEntries(formData));
             alert('Veriniz Başarıyla Güncellendi!');
-        }else{
+        } else {
             InsertRecords(Object.fromEntries(formData));
-            alert('Verinin Başarıyla Kaydedildi!');
         }
+
         navigate('/');
+
     }
-    
-   
+
+
 
     return (
         <div className="container">
@@ -60,9 +70,9 @@ export default function FormContent({ data, setData, Isedit, setIsEdit}) {
                         </select>
                     </div>
                     {loaderData?.id && <input type='hidden' name='id' defaultValue={loaderData?.id} />}
-                   <div className="btns"> 
-                    <button className='add'>{loaderData?.id ? "Güncelle":"Ekle" }</button>
-                    <button className='add' onClick={() => navigate(-1)}>Geri</button>
+                    <div className="btns">
+                        <button className='add'>{loaderData?.id ? "Güncelle" : "Ekle"}</button>
+                        <button type="button" className='add' onClick={() => navigate(-1)}>Geri</button>
                     </div>
                 </form>
             </div>

@@ -110,3 +110,6 @@ input::placeholder{
   margin-top:15px;
 }
 
+.visible{
+  display: none;
+}
