@@ -1,115 +1,123 @@
-body{
-  font-family:Arial, Helvetica, sans-serif;
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 0;
+  margin: 0;
 }
 
-.formElement p{
+.formElement p {
   display: none;
 }
 
-.submit .formElement :is(input,select):not(:valid){
+.submit .formElement :is(input, select):not(:valid) {
   background-color: cadetblue;
 }
 
-.submit .formElement :is(input,select):not(:valid) + p{
+.submit .formElement :is(input, select):not(:valid) + p {
   display: block;
-  color:pink;
-  margin:2px;
+  color: pink;
+  margin: 2px;
 }
 
-select{
-  margin-top:4px;
+select {
+  margin-top: 4px;
 }
-
-.container{
-  width:400px;
-  display: grid;
-  grid-template-columns: 1fr;
-  margin:0 auto;
+.all {
+  margin-top: 10rem;
+  padding-inline: 1rem;
+}
+.container {
+  margin-inline: auto;
+  max-width: 400px;
   background-color: rgb(187, 223, 224);
-  padding:15px;
   border-radius: 5px;
-  gap:5px;
+  gap: 5px;
 }
 
-h3,h4,h5{
+.resultItems {
+  overflow-y: scroll;
+  overflow: auto;
+  max-height: 200px;
+}
+
+h3,
+h4,
+h5 {
   font-weight: bold;
-  color:cadetblue;
+  color: cadetblue;
   display: flex;
-  gap:10px;
-  padding-inline:7px;
-  & span{
+  gap: 10px;
+  padding-inline: 7px;
+  & span {
     margin-right: auto;
   }
 }
 
-.resultItem h4 span{
-  color:rgb(187, 223, 224);
+.resultItem h4 span {
+  color: rgb(187, 223, 224);
 }
 
-a{
+a {
   text-decoration: none;
-  color:cadetblue;
+  color: cadetblue;
   cursor: pointer;
 }
 
-h3 a:hover{
-  color:rgb(236, 92, 92);
+h3 a:hover {
+  color: rgb(236, 92, 92);
   transition: color 250ms ease-in-out;
 }
 
-
-input,select{
+input,
+select {
   border-radius: 15px;
-  padding:5px;
+  padding: 5px;
   outline: none;
-  border:1px solid cadetblue;
-  color:rgb(187, 223, 224);
-  padding-left:9px;
+  border: 1px solid cadetblue;
+  color: rgb(187, 223, 224);
+  padding-left: 9px;
   font-weight: bold;
-  margin:5px;
+  margin: 5px;
 }
 
-input::placeholder{
-  color:rgb(187, 223, 224);
+input::placeholder {
+  color: rgb(187, 223, 224);
 }
 
-
-
-.container > div{
+.container > div {
   background-color: white;
-  border:2px solid cadetblue;
-  padding:15px;
+  border: 2px solid cadetblue;
+  padding: 15px;
   border-radius: 15px;
 }
 
- h1{
-  color:cadetblue;
+h1 {
+  color: cadetblue;
 }
 
-.add{
-  background-color:cadetblue;
-  color:rgb(187, 223, 224);
-  padding-inline:18px;
-  padding-block:5px;
+.add {
+  background-color: cadetblue;
+  color: rgb(187, 223, 224);
+  padding-inline: 18px;
+  padding-block: 5px;
   border-radius: 45px;
-  width:100px;
-  margin-top:15px;
-  border:none;
+  width: 100px;
+  margin-top: 15px;
+  border: none;
   font-weight: bold;
   margin: 5px;
   cursor: pointer;
 }
 
-.add:hover{
-  background-color:rgb(187, 223, 224) ;
+.add:hover {
+  background-color: rgb(187, 223, 224);
   color: cadetblue;
   transition: all 250ms ease-in-out;
 }
 
-.btns{
-  margin-top:15px;
+.btns {
+  margin-top: 15px;
 }
 
-.visible{
+.visible {
   display: none;
 }
