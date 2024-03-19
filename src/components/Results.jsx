@@ -13,13 +13,16 @@ export default function Results({ data, setData }) {
 
   return (
     <>
-      <h3>
+      <h3 className='info'>
         <span>Tüm Veriler</span>
         <Link to='/ekle'>add New</Link>
       </h3>
       <div className='resultItems'>
         {data.map((x, i) => (
-          <div className='resultItem' key={i}>
+          <div
+            className={`resultItem ${i % 2 === 0 ? 'renkli' : 'renksiz'}`}
+            key={i}
+          >
             <h4>
               <span>{x.name}</span>
               <Link to={x.id + '/duzenle'} data={data}>

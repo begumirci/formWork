@@ -53,13 +53,13 @@ export default function FormContent() {
   return (
     <div className='all'>
       <div className='container'>
-        <div className='myForm'>
+        <div>
           <form
             onSubmit={handleClick}
             autoComplete='on'
             ref={myForm}
             noValidate
-            className={submit ? 'submit' : ''}
+            className='myForm'
           >
             <div className='formElement'>
               <input
@@ -69,7 +69,6 @@ export default function FormContent() {
                 name='name'
                 defaultValue={loaderData?.name}
               />
-              <p>Lütfen isim girin</p>
             </div>
             <div className='formElement'>
               <input
@@ -79,7 +78,6 @@ export default function FormContent() {
                 name='email'
                 defaultValue={loaderData?.email}
               />
-              <p>Lütfen email girin</p>
             </div>
             <div className='formElement'>
               <select name='gender' required defaultValue={loaderData?.gender}>

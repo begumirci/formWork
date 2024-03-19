@@ -8,16 +8,6 @@ body {
   display: none;
 }
 
-.submit .formElement :is(input, select):not(:valid) {
-  background-color: cadetblue;
-}
-
-.submit .formElement :is(input, select):not(:valid) + p {
-  display: block;
-  color: pink;
-  margin: 2px;
-}
-
 select {
   margin-top: 4px;
 }
@@ -27,8 +17,8 @@ select {
 }
 .container {
   margin-inline: auto;
-  max-width: 400px;
-  background-color: rgb(187, 223, 224);
+  max-width: 600px;
+  height: auto;
   border-radius: 5px;
   gap: 5px;
 }
@@ -39,26 +29,40 @@ select {
   max-height: 200px;
 }
 
+.resultItem {
+  padding-block: 0.1px;
+  border-radius: 6px;
+  padding-inline: 7px;
+}
+
+.renkli {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
 h3,
 h4,
 h5 {
   font-weight: bold;
-  color: cadetblue;
+  color: rgb(187, 223, 224);
   display: flex;
   gap: 10px;
   padding-inline: 7px;
+
   & span {
     margin-right: auto;
   }
 }
-
+.info {
+  padding-bottom: 10px;
+  border-bottom: 2px solid rgb(187, 223, 224);
+}
 .resultItem h4 span {
-  color: rgb(187, 223, 224);
+  color: lightcoral;
 }
 
 a {
   text-decoration: none;
-  color: cadetblue;
+  color: rgb(187, 223, 224);
   cursor: pointer;
 }
 
@@ -67,27 +71,8 @@ h3 a:hover {
   transition: color 250ms ease-in-out;
 }
 
-input,
-select {
-  border-radius: 15px;
-  padding: 5px;
-  outline: none;
-  border: 1px solid cadetblue;
-  color: rgb(187, 223, 224);
-  padding-left: 9px;
-  font-weight: bold;
-  margin: 5px;
-}
-
 input::placeholder {
   color: rgb(187, 223, 224);
-}
-
-.container > div {
-  background-color: white;
-  border: 2px solid cadetblue;
-  padding: 15px;
-  border-radius: 15px;
 }
 
 h1 {
@@ -115,9 +100,56 @@ h1 {
 }
 
 .btns {
-  margin-top: 15px;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  & button {
+    padding-block: 10px;
+    padding-inline: 12px;
+    background-color: rgb(187, 223, 224);
+    color: lightcoral;
+    font-weight: bold;
+    min-width: 200px;
+  }
 }
 
 .visible {
   display: none;
+}
+
+.myForm {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border: 2px solid cadetblue;
+  padding: 15px;
+  padding-top: 30px;
+  border-radius: 15px;
+  gap: 10px;
+}
+
+.formElement input {
+  padding-block: 7px;
+  padding-inline: 12px;
+  color: lightcoral;
+  border-radius: 15px;
+  outline: none;
+  border: 1px solid cadetblue;
+
+  font-weight: bold;
+}
+
+.formElement select {
+  padding-block: 7px;
+  padding-inline: 12px;
+  border-radius: 15px;
+  outline: none;
+  border: 1px solid cadetblue;
+  color: rgb(187, 223, 224);
+  font-weight: bold;
+
+  & option {
+    padding-block: 7px;
+    padding-inline: 12px;
+  }
 }
