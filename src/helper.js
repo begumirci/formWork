@@ -1,26 +1,26 @@
-function getAllRecords(){
-  if(localStorage.data){
+function getAllRecords() {
+  if (localStorage.data) {
     return JSON.parse(localStorage.data);
   }
   return [];
 }
 
-function commitRecord(data){
-  localStorage.data = JSON.stringify(data)
+function commitRecord(data) {
+  localStorage.data = JSON.stringify(data);
 }
 
-function myId(){
- return `${new Date().toLocaleTimeString().replaceAll(':', '')}-${crypto.randomUUID()}`
+function myId() {
+  return `${new Date()
+    .toLocaleTimeString()
+    .replaceAll(':', '')}-${crypto.randomUUID()}`;
 }
 
-function InsertRecords({name, email,gender}){
-
+function InsertRecords() {
   // if(!(name !== '' && email !== '' && gender !== '')){
   //   alert('Lütfen bilgilerinizi eksiksiz girin')
   //   return ;
   // }
-  
-  
+
   const records = getAllRecords();
   const [newRecord] = arguments;
   newRecord.id = myId();
@@ -29,20 +29,20 @@ function InsertRecords({name, email,gender}){
   alert('Verinin Başarıyla Kaydedildi!');
 }
 
-function UpdateRecords({name, id, email, gender}){
+function UpdateRecords({ name, id, email, gender, phone }) {
   const records = getAllRecords();
-  const record = records.find(x => x.id == id);
+  const record = records.find((x) => x.id == id);
 
   record.name = name;
   record.email = email;
   record.gender = gender;
+  record.phone = phone;
 
   commitRecord(records);
-
 }
 
-function oneRecord(id){
-  return  getAllRecords().find(x => x.id == id) ?? null;
+function oneRecord(id) {
+  return getAllRecords().find((x) => x.id == id) ?? null;
 }
 
-export {getAllRecords, InsertRecords,oneRecord,UpdateRecords,commitRecord};
+export { getAllRecords, InsertRecords, oneRecord, UpdateRecords, commitRecord };

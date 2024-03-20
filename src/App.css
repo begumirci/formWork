@@ -15,14 +15,19 @@ select {
   margin-top: 10rem;
   padding-inline: 1rem;
 }
-.container {
+/* .container {
   margin-inline: auto;
   max-width: 600px;
   height: auto;
   border-radius: 5px;
   gap: 5px;
+  padding: 20px;
+} */
+.results {
+  max-width: 600px;
+  margin: auto;
+  height: 100%;
 }
-
 .resultItems {
   overflow-y: scroll;
   overflow: auto;
@@ -36,8 +41,12 @@ select {
 }
 
 .renkli {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.02);
 }
+
+/* .renksiz {
+  background-color: rgb(108, 231, 221);
+} */
 
 h3,
 h4,
@@ -62,7 +71,8 @@ h5 {
 
 a {
   text-decoration: none;
-  color: rgb(187, 223, 224);
+  color: lightcoral;
+  font-weight: bold;
   cursor: pointer;
 }
 
@@ -94,22 +104,26 @@ h1 {
 }
 
 .add:hover {
-  background-color: rgb(187, 223, 224);
-  color: cadetblue;
-  transition: all 250ms ease-in-out;
+  background-color: rgb(250, 255, 178);
+  color: lightcoral;
+  transition: all 0.2s ease-in;
 }
 
 .btns {
   margin-top: 10px;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   & button {
     padding-block: 10px;
     padding-inline: 12px;
-    background-color: rgb(187, 223, 224);
-    color: lightcoral;
+
+    background-color: lightcoral;
+    font-size: 20px;
+    color: rgb(250, 255, 178);
     font-weight: bold;
-    min-width: 200px;
+    width: 200px;
   }
 }
 
@@ -118,38 +132,64 @@ h1 {
 }
 
 .myForm {
+  margin: auto;
   display: flex;
   flex-direction: column;
   background-color: white;
-  border: 2px solid cadetblue;
-  padding: 15px;
-  padding-top: 30px;
+  padding-right: 25px;
+  padding-left: 15px;
+  padding-block: 30px;
   border-radius: 15px;
   gap: 10px;
+  max-width: 500px;
+  height: 100%;
+  --color1: rgb(108, 231, 221);
+  --color2: rgb(250, 255, 178);
+  background-color: var(--color1);
+  background-image: linear-gradient(
+      45deg,
+      var(--color2) 25%,
+      transparent 25%,
+      transparent 75%,
+      var(--color2) 75%,
+      var(--color2)
+    ),
+    linear-gradient(
+      45deg,
+      var(--color2) 25%,
+      var(--color1) 25%,
+      var(--color1) 75%,
+      var(--color2) 75%,
+      var(--color2)
+    );
+  /* background-size: 80px 80px; */
+  background-position: 0 0, 30px 30px;
 }
 
 .formElement input {
-  padding-block: 7px;
-  padding-inline: 12px;
+  width: 100%;
+  padding-block: 12px;
+  padding-left: 9px;
   color: lightcoral;
-  border-radius: 15px;
+  border-radius: 10px;
   outline: none;
   border: 1px solid cadetblue;
-
   font-weight: bold;
 }
 
 .formElement select {
-  padding-block: 7px;
-  padding-inline: 12px;
-  border-radius: 15px;
+  width: 100%;
+  padding-block: 12px !important;
+  padding-left: 9px;
+  border-radius: 10px;
   outline: none;
   border: 1px solid cadetblue;
   color: rgb(187, 223, 224);
   font-weight: bold;
 
   & option {
-    padding-block: 7px;
-    padding-inline: 12px;
+    width: 250px;
+    padding-block: 7px !important;
+    padding-inline: 12px !important;
   }
 }

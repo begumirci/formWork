@@ -12,10 +12,10 @@ export default function Results({ data, setData }) {
   }
 
   return (
-    <>
+    <div className='results'>
       <h3 className='info'>
         <span>Tüm Veriler</span>
-        <Link to='/ekle'>add New</Link>
+        <Link to='/ekle'>Ekle</Link>
       </h3>
       <div className='resultItems'>
         {data.map((x, i) => (
@@ -24,7 +24,7 @@ export default function Results({ data, setData }) {
             key={i}
           >
             <h4>
-              <span>{x.name}</span>
+              <span>{x.name.toUpperCase()}</span>
               <Link to={x.id + '/duzenle'} data={data}>
                 🖌
               </Link>
@@ -39,6 +39,6 @@ export default function Results({ data, setData }) {
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 }
