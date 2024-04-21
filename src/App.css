@@ -23,6 +23,21 @@ select {
   gap: 5px;
   padding: 20px;
 } */
+
+.search-input {
+  border-radius: 6px;
+  outline: none;
+  border: 1px solid cadetblue;
+  padding-block: 5px;
+  padding-inline: 10px;
+  color: rgba(0, 0, 0, 0.4);
+  width: 150px;
+  font-size: 15px;
+  transition: width 0.2s ease-in;
+  &:focus {
+    width: 200px;
+  }
+}
 .results {
   max-width: 600px;
   margin: auto;
@@ -64,6 +79,12 @@ h5 {
 .info {
   padding-bottom: 10px;
   border-bottom: 2px solid rgb(187, 223, 224);
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 .resultItem h4 span {
   color: lightcoral;
